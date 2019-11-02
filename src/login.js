@@ -45,13 +45,12 @@ class Login extends React.Component{
 
 
     this.setState({isLoggedIn: 'Y'}, this.handleLogin);
+
   }
 
   handleLogin(){
-    console.log('isLoggedIn login.js: '+this.state.isLoggedIn);
 
-    console.log('handlelogin in *************');
-
+    console.log('username: ' + this.state.username + ' pwd: ' + this.state.pass);
     const data = {username: this.state.username, apiSessId: 'daraaniEbolgooroi', LoggedIn: this.state.isLoggedIn};
     //console.log('data: '+ JSON.stringify(data).toString());
     const dataenc = crypto.AES.encrypt(JSON.stringify(data), 'secret').toString();
@@ -94,13 +93,13 @@ class Login extends React.Component{
                         <Col  md="auto">
                           <Form >
                             <Form.Group>
-                              <Form.Control type='text' placeholder="Username"/>
+                              <Form.Control type='text' placeholder="Username" value={this.state.username} onChange={this.handleUsername}/>
                             </Form.Group>
                             <Form.Group>
-                              <Form.Control type='password' placeholder="************"/>
+                              <Form.Control type='password' placeholder="************" value={this.state.pass} onChange={this.handlePwd}/>
                             </Form.Group>
                             <Form.Group>
-                              <Button className='btn-block' variant='outline-dark'>Submit</Button>
+                              <Button className='btn-block' variant='outline-dark' onClick={this.handleSubmit}>Submit</Button>
                             </Form.Group>                
                           </Form>
                         </Col>

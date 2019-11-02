@@ -44,10 +44,10 @@ class main extends React.Component{
 
 	handleData(e){
 			var respdatatable = [];
-			console.log("SENDING REQUEST");
+			//console.log("SENDING REQUEST");
 			axios.post('http://172.16.20.16:8080/rpc',{requestid:'GetPayBills', User: e.username, sessionid: e.apiSessId}).then(
 				resp=>{
-					console.log(resp.data.data);
+			//		console.log(resp.data.data);
 					respdatatable = JSON.stringify(resp.data.data);
 						this.setState({dataTable: respdatatable});
 					}

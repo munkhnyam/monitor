@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Table} from 'react-bootstrap';
+import {Table,Container,Button} from 'react-bootstrap';
 
 class PayBill extends React.Component{
 
@@ -9,18 +9,27 @@ class PayBill extends React.Component{
 		super(e);
 		console.log('Paybill orson ***');	
 		this.handleDataPaybill();
+		this.handleClick=this.handleClick.bind(this);
+	}
+
+	handleClick(e){
+		alert("Clicked button num: " + e);
 	}
 
 	handleDataPaybill(){
 		console.log('Handling data *****');
 		let rowbill = [];
+		let cnt=0;
 		for(var i = 0; i < 10 ; i++){
 			let columnbill = [];
+			
 
-			for(var j =0; j < 5 ; j++)
+			for(var j =0; j < 4 ; j++)
 			{
 				columnbill.push(<td variant='col'>Row {i} {j}'</td>);
 			}
+
+			columnbill.push(<td> <Button className='btn-block' variant='outline-dark' onClick={ () => this.handleClick(cnt++)}>Update</Button></td>);
 
 
 			console.log('Row' + i);
@@ -33,12 +42,18 @@ class PayBill extends React.Component{
 
 	render() {
 		return(
-				<div> PayBill Class 
+				<Container> PayBill Class 
 					<Table striped bordered hover>
-					<thead></thead>
+					<thead>
+						<th>First</th>
+						<th>Second</th>
+						<th>Third</th>
+						<th>Forth</th>
+						<th>Fifth</th>
+					</thead>
 					<tbody>{this.handleDataPaybill()}</tbody>						
 					</Table>
-				</div>	
+				</Container>	
 				
 			);
 	}
