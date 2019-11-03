@@ -89,9 +89,9 @@ class Login extends React.Component{
               */
 
               <Container>
-                   <Row className="justify-content-md-center mt-5" >
+                   <Row className="justify-content-md-center mt-5 " >
                         <Col  md="auto">
-                          <Form >
+                          <Form className="bordered" >
                             <Form.Group>
                               <Form.Control type='text' placeholder="Username" value={this.state.username} onChange={this.handleUsername}/>
                             </Form.Group>

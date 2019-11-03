@@ -42,7 +42,8 @@ class PayBill extends React.Component{
 
 	render() {
 		return(
-				<Container> PayBill Class 
+				<Container noGutters={true}>
+					<h1 style={{marginLeft:0}}> PayBill Class </h1>
 					<Table striped bordered hover>
 					<thead>
 						<th>First</th>

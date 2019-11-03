@@ -5,10 +5,12 @@ import cookie from 'react-cookies';
 import crypto from 'crypto-js'
 import axios from 'axios'
 import PayBill from './PayBill'
+import Another from './Another'
+import {Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap';
 
 class main extends React.Component{
-	constructor(e){
-		super(e);
+	constructor(props){
+		super(props);
 		//this.state = {isLoggedIn: cookie.load('isLoggedInCookie')}
 
 		//console.log('sessData: '+ sessData.LoggedIn + ' ' + sessData.username);
@@ -56,11 +58,30 @@ class main extends React.Component{
 //<div>dataTable {this.state.dataTable} </div>
 	render(){
 		if(this.state.isLoggedIn === 'Y'){
-			return( <div>what up bithcessss
-				<input type="submit" value="Sign out" onClick={this.handleSubmit} >
-				</input>
-					<div><PayBill /></div>
-				</div>				
+			return( <div>
+						<h1>1</h1>
+						<Navbar bg="light" expand="lg">
+						  <Navbar.Brand>Wassaaap-Bitcheees</Navbar.Brand>
+						  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+						  <Navbar.Collapse id="basic-navbar-nav">
+						    <Nav className="mr-auto">
+						      <Nav.Link >PayBill</Nav.Link>
+						      <Nav.Link href="./Another">Another</Nav.Link>
+						  	</Nav>
+						    <Form inline>						   
+						      <Button variant="outline-dark" onClick={this.handleSubmit}>Logout</Button>
+						    </Form>
+						  </Navbar.Collapse>
+						</Navbar>
+						
+						<div>
+							<h1>2</h1>
+							{
+								this.props.children
+							}
+						</div>
+
+					</div>				
 				);
 		} 
 		else{
@@ -76,5 +97,5 @@ class main extends React.Component{
 }
 
 
-export default withRouter(main)
+export default main
 
