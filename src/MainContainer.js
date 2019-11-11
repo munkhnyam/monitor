@@ -16,6 +16,7 @@ import login from './login'
 		//cookie.remove('isLoggedInCookie');
 		console.log("HERE");
 		cookie.remove('sessionData');
+		alert("LOg out deer darsan");
 		//console.log('log out isLoggedIn: '+cookie.load('isLoggedInCookie'));
 		//console.log('log out sessionData: '+cookie.load('sessionData'));
 		//this.setState({isLoggedIn: 'N'});
@@ -32,36 +33,36 @@ import login from './login'
 						this.setState({dataTable: respdatatable});
 					}
 				);
-			}
+	}
 
-function MainContainer(props){
+	function MainContainer(props){
 
-	const sessData = JSON.parse(crypto.AES.decrypt(cookie.load('sessionData'),'secret').toString(crypto.enc.Utf8));
-	console.log(sessData.LoggedIn);
-	if(sessData.LoggedIn=='N'){
-		return(<h1>aldaa</h1>);
-	} else {
-			return(			
-			<div>
-				<Navbar bg="light" expand="lg">
-				  <Navbar.Brand>Wassaaap-Bitcheees</Navbar.Brand>
-				  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-				  <Navbar.Collapse id="basic-navbar-nav">
-				    <Nav className="mr-auto">
-				      <Nav.Link href="./PayBill" >PayBill</Nav.Link>
-				      <Nav.Link href="./Another">Another</Nav.Link>
-				  	</Nav>
-				    <Form inline>						   
-				      <Button variant="outline-dark" href='./login' onClick={handleSubmit}>Logout</Button>
-				    </Form>
-				  </Navbar.Collapse>
-				</Navbar>						
+		const sessData = JSON.parse(crypto.AES.decrypt(cookie.load('sessionData'),'secret').toString(crypto.enc.Utf8));
+		console.log(sessData.LoggedIn);
+		if(sessData.LoggedIn=='N'){
+			return(<h1>aldaa</h1>);
+		} else {
+				return(			
 				<div>
-					{
-					 props.children
-					}
-				</div>
-			</div>);
+					<Navbar bg="light" expand="lg" color="indigo">
+					  <Navbar.Brand>Wassaaap-Bitcheees</Navbar.Brand>
+					  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+					  <Navbar.Collapse id="basic-navbar-nav">
+					    <Nav className="mr-auto">
+					      <Nav.Link href="./PayBill" >PayBill</Nav.Link>
+					      <Nav.Link href="./Another">Another</Nav.Link>
+					  	</Nav>
+					    <Form inline>						   
+					      <Nav.Link  href='/' onClick={handleSubmit}>Logout</Nav.Link>
+					    </Form>
+					  </Navbar.Collapse>
+					</Navbar>						
+					<div>
+						{
+						 props.children
+						}
+					</div>
+				</div>);
 	}
 }
 

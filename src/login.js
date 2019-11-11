@@ -16,7 +16,7 @@ class Login extends React.Component{
   this.handlePwd = this.handlePwd.bind(this);
   this.handleUsername = this.handleUsername.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
-  
+  alert("Login constructor");
   }
 
   
