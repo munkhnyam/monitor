@@ -52,6 +52,7 @@ class main extends React.Component{
 			//		console.log(resp.data.data);
 					respdatatable = JSON.stringify(resp.data.data);
 						this.setState({dataTable: respdatatable});
+						console.log("data: " + respdatatable);
 					}
 				);
 			}

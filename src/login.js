@@ -22,7 +22,7 @@ class Login extends React.Component{
   
   handleSubmit = () =>{       
     
-  /*  axios.post('http://172.16.20.16:8080/rpc',{requestid:'Login', User: this.state.username, Pass: this.state.pass}).then(
+    axios.post('http://172.16.20.16:8080/rpc',{requestid:'Login', User: this.state.username, Pass: this.state.pass}).then(
         res =>{
             console.log(res.data);                      
             if(res.data.status === 'Success'){
@@ -37,21 +37,22 @@ class Login extends React.Component{
                 this.setState({isLoggedIn: 'N'}, ()=>{
                   //console.log('State bolsn');
                 this.handleLogin();
+                alert('Username or password is incorrect.');
                 });
             }
         }
       );
-    */
+   
 
 
-    this.setState({isLoggedIn: 'Y'}, this.handleLogin);
+   // this.setState({isLoggedIn: 'Y'}, this.handleLogin);
 
   }
 
-  handleLogin(){
+  handleLogin(e){
 
     console.log('username: ' + this.state.username + ' pwd: ' + this.state.pass);
-    const data = {username: this.state.username, apiSessId: 'daraaniEbolgooroi', LoggedIn: this.state.isLoggedIn};
+    const data = {username: this.state.username, apiSessId: e, LoggedIn: this.state.isLoggedIn};
     //console.log('data: '+ JSON.stringify(data).toString());
     const dataenc = crypto.AES.encrypt(JSON.stringify(data), 'secret').toString();
     //console.log('dataenc: ' + dataenc);
